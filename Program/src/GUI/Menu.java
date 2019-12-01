@@ -1,4 +1,4 @@
-package Other.ConceptUI;
+package GUI;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by Denver Lewis - B00530157
  * Created on 28/11/2019
- * Program info
+ * A main menu that that contains buttons allowing the user to get and set data
  */
 public class Menu extends JPanel implements ActionListener {
 
@@ -33,11 +33,23 @@ public class Menu extends JPanel implements ActionListener {
     // Method handles button clicks and gets and sets data
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Make Booking")) {
-            System.out.println("Make Booking clicked");
+            JFrame frame = new JFrame();
+            if (checkInvalid())
+                JOptionPane.showMessageDialog(frame, "Please enter all required fields");
+            else if (RentalForm.getAge() < 18)
+                JOptionPane.showMessageDialog(frame, "Must be 18 or over to rent a car");
+            else Controller.setValues();
         }
         if (e.getActionCommand().equals("Show Report")) {
             System.out.println("Show Report Clicked");
+            Controller.printData();
         }
 
+    }
+
+    private boolean checkInvalid() {
+        return RentalForm.getFName().equals("") || RentalForm.getSName().equals("") ||
+                RentalForm.getAddressLine1().equals("") || RentalForm.getPostCode().equals("") ||
+                RentalForm.getCity().equals("") || RentalForm.getAge() == 0;
     }
 }
