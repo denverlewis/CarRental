@@ -42,22 +42,30 @@ public class TestGUI {
             for(int i = 0; i < fNameList.size(); i++) {
                 fName = fNameList.get(i);
                 sName = sNameList.get(i);
-                OutputScreen.outputMessage("Rental was for " + fName + " " + sName + "\n\n");
+                OutputScreen.outputMessage("Rental was for " + fName + " "
+                        + sName + "\n\n");
             }
-            OutputScreen.outputMessage("\nThe number of rentals was " + fNameList.size());
+            OutputScreen.outputMessage("\nThe number of rentals was "
+                    + fNameList.size());
             /*
-            OutputScreen.outputMessage("\n\n\nTEST LONG MESSAGE\n Lorem ipsum dolor sit amet,\n " +
-                    "consectetur adipiscing\n elit, sed do eiusmod tempor \n\n\n\n\n\n\n\n\n\n\n " +
+            OutputScreen.outputMessage("\n\n\nTEST LONG MESSAGE\n Lorem ipsum
+            dolor sit amet,\n " +
+                    "consectetur adipiscing\n elit, sed do eiusmod tempor
+                     \n\n\n\n\n\n\n\n\n\n\n " +
                     "incididunt ut labore" +
                     " et " +
-                    "\ndolore magna aliqua.\n Ut enim ad minim veniam, quis\n nostrud " +
+                    "\ndolore magna aliqua.\n Ut enim ad minim veniam,
+                    quis\n nostrud " +
                     "exercitation " +
-                    "ullamco laboris\n\n\n\n\n\n\n\n nisi ut aliquip ex ea commodo consequat.\n " +
+                    "ullamco laboris\n\n\n\n\n\n\n\n nisi ut aliquip ex ea
+                    commodo consequat.\n " +
                     "Duis aute " +
                     "irure " +
-                    "dolor\n in reprehenderit in\n voluptate velit esse cillum\n dolore eu fugiat" +
+                    "dolor\n in reprehenderit in\n voluptate velit esse
+                     cillum\n dolore eu fugiat" +
                     " " +
-                    "nulla pariatur. Excepteur sint\n occaecat cupidatat non proident, sunt in\n " +
+                    "nulla pariatur. Excepteur sint\n occaecat cupidatat non
+                    proident, sunt in\n " +
                     "culpa qui officia\n deserunt mollit anim id est laborum.");
                     */
 

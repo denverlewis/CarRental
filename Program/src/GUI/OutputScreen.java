@@ -19,6 +19,7 @@ public class OutputScreen extends JPanel {
         add(new JScrollPane(textArea), BorderLayout.CENTER);
         setBorder(BorderFactory.createLoweredBevelBorder());
         textArea.setMargin(new Insets(0, 5, 0, 0));
+        textArea.setEditable(false);
 
     }
 

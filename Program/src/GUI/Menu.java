@@ -33,23 +33,26 @@ public class Menu extends JPanel implements ActionListener {
     // Method handles button clicks and gets and sets data
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Make Booking")) {
-            JFrame frame = new JFrame();
             if (checkInvalid())
-                JOptionPane.showMessageDialog(frame, "Please enter all required fields");
+                JOptionPane.showMessageDialog(null,
+                        "Please enter all required fields");
             else if (RentalForm.getAge() < 18)
-                JOptionPane.showMessageDialog(frame, "Must be 18 or over to rent a car");
+                JOptionPane.showMessageDialog(null,
+                        "Must be 18 or over to rent a car");
             else Controller.setValues();
         }
         if (e.getActionCommand().equals("Show Report")) {
-            System.out.println("Show Report Clicked");
+            //System.out.println("Show Report Clicked");
             Controller.printData();
         }
 
     }
 
     private boolean checkInvalid() {
-        return RentalForm.getFName().equals("") || RentalForm.getSName().equals("") ||
-                RentalForm.getAddressLine1().equals("") || RentalForm.getPostCode().equals("") ||
+        return RentalForm.getFName().equals("") ||
+                RentalForm.getSName().equals("") ||
+                RentalForm.getAddressLine1().equals("")
+                || RentalForm.getPostCode().equals("") ||
                 RentalForm.getCity().equals("") || RentalForm.getAge() == 0;
     }
 }

@@ -18,6 +18,7 @@ public class RentalForm extends JPanel {
     private static JTextField city;
     private static JTextField postCode;
     private static JTextField age;
+    private static JTextField duration;
     private static JList<String> carList;
 
     public RentalForm() {
@@ -43,6 +44,8 @@ public class RentalForm extends JPanel {
         postCode = new JTextField(6);
         JLabel ageLabel = new JLabel("Age: ");
         age = new JTextField(3);
+        JLabel daysLabel = new JLabel("Days: ");
+        duration = new JTextField(3);
         JLabel selectCar = new JLabel("Car Category: ");
         carList = new JList<>();
 
@@ -121,6 +124,15 @@ public class RentalForm extends JPanel {
         add(selectCar , c);
         c.gridx = 1;
         add(carList, c);
+        c.gridx = 2;
+        add(daysLabel, c);
+        c.anchor = GridBagConstraints.FIRST_LINE_START;
+        c.gridx = 3;
+        add(duration, c);
+
+        // Rental Duration
+
+
 
     }
 
