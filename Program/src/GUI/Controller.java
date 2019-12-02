@@ -3,6 +3,7 @@ package GUI;
 import javax.swing.*;
 import java.awt.*;
 import CarSelectioinClass.*;
+import CustomerDetails.*;
 
 /**
  * Created by Denver Lewis - B00530157
@@ -10,6 +11,10 @@ import CarSelectioinClass.*;
  * Builds a GUI and communicates data
  */
 public class Controller extends JFrame {
+
+	 public static String carType;
+	 public static String carmake;
+
 
 
     // Creates the User interface
@@ -49,13 +54,17 @@ public class Controller extends JFrame {
                 RentalForm.getSName());
 
 
-        String car = CarSelection.convertToWords(RentalForm.getCarCat());
-		  System.out.println("Car Selection selected " + car);
+        carmake = CarSelection.chooseCar(RentalForm.getCarCat());
+		  //System.out.println("Car Selection selected " + car);
+		  String name = RentalForm.getFName() + " " + RentalForm.getSName();
+		  Customer customer = new Customer("1",name, "Address1", "address2", "postcode", "city" );
+		  OutputScreen.outputMessage(customer.getName());
+		  OutputScreen.outputMessage("\n" + carmake);
 
 
 
 
-        // Test output in Screen
+       /* // Test output in Screen
         OutputScreen.clearOutput();
         OutputScreen.outputMessage("\nName:\t" + RentalForm.getFName() + " ");
         OutputScreen.outputMessage(RentalForm.getSName() + "\n\n");
@@ -69,7 +78,9 @@ public class Controller extends JFrame {
         OutputScreen.outputMessage("\t" + RentalForm.getPostCode() + "\n\n");
         OutputScreen.outputMessage("Has Selected Car Category "
                 + RentalForm.getCarCat());
+        OutputScreen.outputMessage("\n\n" + car);
         RentalForm.clearForm();
+
 
         /*   //  Test Output in console
         System.out.println("Make Booking clicked");

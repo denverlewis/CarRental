@@ -51,11 +51,10 @@ public class RentalForm extends JPanel {
 
         // Sets up carList
         DefaultListModel<String> listModel = new DefaultListModel<>();
-        listModel.addElement("A. Small Car");
-        listModel.addElement("B. Standard Car");
-        listModel.addElement("C. Estate Car");
-        listModel.addElement("D. Mini Van");
-        listModel.addElement("E. Executive Car");
+        listModel.addElement("1. Mini Car");
+        listModel.addElement("2. Economy Car");
+        listModel.addElement("3. Compact Car");
+        listModel.addElement("4. Premium Car");
         carList.setModel(listModel);
         carList.setBorder(BorderFactory.createEtchedBorder());
         carList.setSelectedIndex(0);

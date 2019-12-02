@@ -1,5 +1,6 @@
 package CarSelectioinClass;
 
+import GUI.*;
 /**
      * Program Created by Paddy Cassidy
      * Program Created on the 27/11/19
@@ -21,27 +22,28 @@ import java.util.Scanner;
 
 
         // Method to accept an integer and return the equivalent word
-        public static String convertToWords(int num) {
-            String text = "";
+        public static String chooseCar(int num) {
+        	 ;
 
             switch (num) {
                 case 1:
-                    text = "Mini";
-                    break;
+                    return Controller.carmake = "Ford Ka";
+                    // Car car = new Car("Ford", "Ka", "One luggage")
+
                 case 2:
-                    text = "Economy";
-                    break;
+                   return Controller.carmake = "Ford Mondeo";
+
                 case 3:
-                    text = "Compact";
-                    break;
+                    return Controller.carmake = "BMW 320";
+
                 case 4:
-                    text = "Premium";
-                    break;
+                    return Controller.carmake = "Mercedes S Class";
+
 
                 default:
                     System.out.println("Please enter a number 1 - 4");
             }//case
-            return text;
+				return "";
         }//switch
 
 

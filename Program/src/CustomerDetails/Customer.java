@@ -1,3 +1,5 @@
+package CustomerDetails;
+
 /**
  * Created by Damon Rodgers
  * Program to get customer details
@@ -11,15 +13,17 @@ public class Customer {
    private String address1;
    private String address2;
    private String postcode;
+   private String city;
    // private String licenceNo;
 
    //Default Constructor
-   public Customer (String custNumber, String custName, String custAddress1, String custAddress2, String custLicenceNo, String custPostcode) {
+   public Customer (String custNumber, String custName, String custAddress1, String custAddress2, String custPostcode, String city) {
       number = custNumber;
       name = custName;
       address1 = custAddress1;
       address2 = custAddress2;
       postcode = custPostcode;
+      this.city = city;
      // licenceNo = custLicenceNo;
    }
 
@@ -42,7 +46,7 @@ public class Customer {
    //This method sets the first line of of the customers address
    //protected void setLicenceNo(String custLicenceNo) {
      // licenceNo= custLicenceNo;
-   }
+   //}
 
 
    //This method returns the number of the customer
@@ -50,7 +54,7 @@ public class Customer {
       return number;
    }
    //This method returns the name of the customer
-   protected String getName() {
+   public String getName() {
       return name;
    }
    //This method returns the address1 of the customer
@@ -68,6 +72,6 @@ public class Customer {
    //This method returns the licence number of the customer
   // protected String getLicenceNo() {
     //  return licenceNo;
-   }
+   //}
 
 }//class
