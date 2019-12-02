@@ -10,14 +10,14 @@ import java.util.Scanner;
 
     public class CarSelection {
 
-        static Scanner keyboard = new Scanner(System.in);
+        //static Scanner keyboard = new Scanner(System.in);
 
 
         // Method to read in and return an integer
-        public static int readInteger(String text) {
-            System.out.println("Enter" + text);
-            return keyboard.nextInt();
-        }//readInteger
+        //public static int readInteger(String text) {
+            //System.out.println("Enter" + text);
+            //return keyboard.nextInt();
+        //}//readInteger
 
 
         // Method to accept an integer and return the equivalent word
@@ -55,9 +55,9 @@ import java.util.Scanner;
             System.out.println("Please enter a number to choose a class. \n1. Mini \n2. Economy \n3. Compact " +
                     "\n4. Premium");
             System.out.println("************************");
-            number1 = readInteger(" a number: ");
-            numberInWords = convertToWords(number1);
-            System.out.println(number1 +". " + numberInWords + "\n");
+            //number1 = readInteger(" a number: ");
+            //numberInWords = convertToWords(number1);
+           // System.out.println(number1 +". " + numberInWords + "\n");
 
 
         }//main

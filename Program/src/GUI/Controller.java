@@ -2,6 +2,7 @@ package GUI;
 
 import javax.swing.*;
 import java.awt.*;
+import CarSelectioinClass.*;
 
 /**
  * Created by Denver Lewis - B00530157
@@ -46,6 +47,13 @@ public class Controller extends JFrame {
 
         TestGUI test = new TestGUI(RentalForm.getFName(),
                 RentalForm.getSName());
+
+
+        String car = CarSelection.convertToWords(RentalForm.getCarCat());
+		  System.out.println("Car Selection selected " + car);
+
+
+
 
         // Test output in Screen
         OutputScreen.clearOutput();
