@@ -60,7 +60,7 @@ import java.util.Scanner;
             System.out.println(number1 +". " + numberInWords + "\n");
 
 
-        }//class
+        }//main
 
     }//class
 
