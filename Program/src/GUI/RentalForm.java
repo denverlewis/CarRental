@@ -136,30 +136,33 @@ public class RentalForm extends JPanel {
     }
 
     // Gets data from text fields
-    protected static String getFName() {
+    public static String getFName() {
         return fName.getText();
     }
 
-    protected static String getSName() {
+    public static String getSName() {
         return sName.getText();
     }
 
-    protected static String getAddressLine1() {
+    public static String getAddressLine1() {
         return addressLine1.getText();
     }
 
-    protected static String getAddressLine2() {
+    public static String getAddressLine2() {
         return addressLine2.getText();
     }
+    public static void formatAddressLine2(String line2) {
+        if(!line2.equals("")) getAddressLine2();
+    }
 
-    protected static String getCity() {
+    public static String getCity() {
         return city.getText();
     }
 
-    protected static String getPostCode() {
+    public static String getPostCode() {
         return postCode.getText();
     }
-    protected static int getAge() {
+    public static int getAge() {
         if (age.getText().equals(""))
             return 0;
         else

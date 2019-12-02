@@ -12,6 +12,7 @@ public class OutputScreen extends JPanel {
 
     private static JTextArea textArea;
 
+
     public OutputScreen() {
         textArea = new JTextArea();
 

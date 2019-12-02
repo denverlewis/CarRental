@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import CarSelectioinClass.*;
 import CustomerDetails.*;
+import Test.*;
 
 /**
  * Created by Denver Lewis - B00530157
@@ -14,6 +15,7 @@ public class Controller extends JFrame {
 
 	 public static String carType;
 	 public static String carmake;
+
 
 
 
@@ -50,16 +52,38 @@ public class Controller extends JFrame {
 
     public static void setValues() {
 
-        TestGUI test = new TestGUI(RentalForm.getFName(),
-                RentalForm.getSName());
+        CarSelector car = new CarSelector(RentalForm.getCarCat());
+        carType = car.getType();
+        carmake = car.getMakeModel();
+        CustomerDataBase newCustomer = new CustomerDataBase(RentalForm.getFName(),
+                RentalForm.getSName(), RentalForm.getAddressLine1(), RentalForm.getAddressLine2()
+                , RentalForm.getCity(), RentalForm.getPostCode(), carType, carmake);
+        newCustomer.addData();
+        MessageBuilder message = new MessageBuilder();
+        message.outputRentalAgreement();
+        RentalForm.clearForm();
 
 
-        carmake = CarSelection.chooseCar(RentalForm.getCarCat());
-		  //System.out.println("Car Selection selected " + car);
-		  String name = RentalForm.getFName() + " " + RentalForm.getSName();
-		  Customer customer = new Customer("1",name, "Address1", "address2", "postcode", "city" );
-		  OutputScreen.outputMessage(customer.getName());
-		  OutputScreen.outputMessage("\n" + carmake);
+    }
+
+    public static void printData() {
+
+        MessageBuilder message = new MessageBuilder();
+        message.outputReport();
+
+    }
+
+
+    //TestGUI test = new TestGUI(RentalForm.getFName(),
+    // RentalForm.getSName());
+
+
+    //carmake = CarSelection.chooseCar(RentalForm.getCarCat());
+    //System.out.println("Car Selection selected " + car);
+    //String name = RentalForm.getFName() + " " + RentalForm.getSName();
+    // Customer customer = new Customer("1",name, "Address1", "address2", "postcode", "city" );
+    //OutputScreen.outputMessage(customer.getName());
+    //OutputScreen.outputMessage("\n" + carmake);
 
 
 
@@ -93,13 +117,4 @@ public class Controller extends JFrame {
         System.out.println(RentalForm.getPostCode());
         System.out.println(RentalForm.getCarCat());
         RentalForm.clearForm();*/
-
-    }
-
-    public static void printData() {
-        TestGUI test = new TestGUI();
-        OutputScreen.clearOutput();
-        test.returnData();
-
-    }
 }
