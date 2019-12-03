@@ -35,18 +35,18 @@ public class TestGUI {
 
     public void returnData() {
         if(fNameList.size() == 0) {
-            OutputScreen.outputMessage("List is empty");
+            //OutputScreen.outputMessage("List is empty");
         }
 
         else{
             for(int i = 0; i < fNameList.size(); i++) {
                 fName = fNameList.get(i);
                 sName = sNameList.get(i);
-                OutputScreen.outputMessage("Rental was for " + fName + " "
-                        + sName + "\n\n");
+                //OutputScreen.outputMessage("Rental was for " + fName + " "
+                        //+ sName + "\n\n");
             }
-            OutputScreen.outputMessage("\nThe number of rentals was "
-                    + fNameList.size());
+            //OutputScreen.outputMessage("\nThe number of rentals was "
+                    //+ fNameList.size());
             /*
             OutputScreen.outputMessage("\n\n\nTEST LONG MESSAGE\n Lorem ipsum
             dolor sit amet,\n " +

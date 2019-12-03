@@ -8,6 +8,30 @@ import GUI.*;
  */
 public class MessageBuilder {
 
+    public void outputMessage() {
+        if (CustomerDataBase.nameList.size() == 0) {
+            new OutputScreen("List is empty",true);
+        }
+        else {
+            for (int index = 0; index < CustomerDataBase.nameList.size(); index++) {
+                 String output;
+                 output =
+                         "Name: " + CustomerDataBase.nameList.get(index) + "\nAddress: "
+                                 + CustomerDataBase.addressList.get(index) + "\nCity: "
+                                 + CustomerDataBase.cityList.get(index) + "\nPostcode: "
+                                 + CustomerDataBase.postcodeList.get(index) + "\nRental type: "
+                                 + CustomerDataBase.carTypeList.get(index) + "\nCar chosen: "
+                                 + CustomerDataBase.carMakeList.get(index) + "\n\n";
+                 new OutputScreen(output, false);
+            }
+        }
+    }
+}
+
+
+
+    /*
+
     public void outputRentalAgreement() {
 
         OutputScreen.clearOutput();
@@ -19,8 +43,8 @@ public class MessageBuilder {
         }
         OutputScreen.outputMessage("\n\t" + RentalForm.getCity() + "\n\t"
                 + RentalForm.getPostCode());
-        OutputScreen.outputMessage("\n\nCar Type: " + Controller.carType);
-        OutputScreen.outputMessage("\nCar Model: " + Controller.carmake);
+        //OutputScreen.outputMessage("\n\nCar Type: " + Controller.carType);
+        //OutputScreen.outputMessage("\nCar Model: " + Controller.carmake);
 
 
     }
@@ -44,3 +68,5 @@ public class MessageBuilder {
         }
     }
 }
+
+ */

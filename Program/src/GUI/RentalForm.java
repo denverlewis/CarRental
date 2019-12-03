@@ -151,9 +151,6 @@ public class RentalForm extends JPanel {
     public static String getAddressLine2() {
         return addressLine2.getText();
     }
-    public static void formatAddressLine2(String line2) {
-        if(!line2.equals("")) getAddressLine2();
-    }
 
     public static String getCity() {
         return city.getText();

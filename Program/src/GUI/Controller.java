@@ -2,9 +2,12 @@ package GUI;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Scanner;
+
 import CarSelectioinClass.*;
 import CustomerDetails.*;
 import Test.*;
+import CarRentalAgreement.Booking;
 
 /**
  * Created by Denver Lewis - B00530157
@@ -12,11 +15,6 @@ import Test.*;
  * Builds a GUI and communicates data
  */
 public class Controller extends JFrame {
-
-	 public static String carType;
-	 public static String carmake;
-
-
 
 
     // Creates the User interface
@@ -52,15 +50,25 @@ public class Controller extends JFrame {
 
     public static void setValues() {
 
+        String name = RentalForm.getFName() + " " + RentalForm.getSName();
+        String address;
+        if(RentalForm.getAddressLine2().equals(""))
+            address = RentalForm.getAddressLine1();
+        else address = RentalForm.getAddressLine1() + "\n" + RentalForm.getAddressLine2();
+        String city = RentalForm.getCity();
+        String postcode = RentalForm.getPostCode();
+
         CarSelector car = new CarSelector(RentalForm.getCarCat());
-        carType = car.getType();
-        carmake = car.getMakeModel();
-        CustomerDataBase newCustomer = new CustomerDataBase(RentalForm.getFName(),
-                RentalForm.getSName(), RentalForm.getAddressLine1(), RentalForm.getAddressLine2()
-                , RentalForm.getCity(), RentalForm.getPostCode(), carType, carmake);
+        String carType = car.getType();
+        String carMake = car.getMakeModel();
+        CustomerDataBase newCustomer = new CustomerDataBase(name, address, city, postcode,
+                carType, carMake);
         newCustomer.addData();
-        MessageBuilder message = new MessageBuilder();
-        message.outputRentalAgreement();
+        Booking newBooking = new Booking(city, address, postcode,
+                1, 1, 1, 1,false,false);
+        new OutputScreen(newBooking.toString(), true);
+        //MessageBuilder message = new MessageBuilder();
+        //message.outputRentalAgreement();
         RentalForm.clearForm();
 
 
@@ -69,8 +77,17 @@ public class Controller extends JFrame {
     public static void printData() {
 
         MessageBuilder message = new MessageBuilder();
-        message.outputReport();
+        OutputScreen.clearOutput();
+        message.outputMessage();
+        //testFindEntry();
 
+    }
+
+    public static void testFindEntry() {
+        Scanner kb = new Scanner(System.in);
+        System.out.print("Enter record number: ");
+        int index = kb.nextInt();
+        //System.out.println(CustomerDataBase.fNameList.get(index));
     }
 
 

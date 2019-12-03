@@ -1,5 +1,7 @@
 package GUI;
 
+import CarRentalAgreement.Booking;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -24,7 +26,12 @@ public class OutputScreen extends JPanel {
 
     }
 
-    public static void outputMessage(String output) {
+    public OutputScreen(String output, boolean clear) {
+        if (clear) OutputScreen.clearOutput();
+        outputMessage(output);
+    }
+
+    public void outputMessage(String output) {
         textArea.append(output);
     }
 
