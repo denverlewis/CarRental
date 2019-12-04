@@ -1,12 +1,15 @@
+/*
 package CarRentalAgreement;
 
 import java.util.Scanner;
 
+*/
 /**
  * Created by Joshua Bogle on 02/12/2019
  * Program that reads user input to create
  * a booking object to print a receipt
- */
+ *//*
+
 public class BookingTest {
    static Scanner keyboard = new Scanner(System.in);
 
@@ -80,10 +83,12 @@ public class BookingTest {
 
       System.out.println("========================");
 
-      Booking booking = new Booking(city, address, postcode, day, month, year, noOfDays, excessProtection, roadsideProtection);
+      Booking booking = new Booking(city, address, postcode, day, month, year, noOfDays,
+              excessProtection, roadsideProtection);
 
       // Print out booking details of customer
 
       System.out.println(booking);
    }
 }//class
+*/

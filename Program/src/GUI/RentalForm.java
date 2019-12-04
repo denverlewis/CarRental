@@ -187,9 +187,27 @@ public class RentalForm extends JPanel {
             return -1;
         }
     }
+    protected static int getDays() {
+        try {
+            if (duration.getText().equals(""))
+                return 0;
+            else
+                return Integer.parseInt(duration.getText());
+        } catch (NumberFormatException e) {
+            return 0;
+        }
+    }
 
     protected static int getCarCat() {
         return carList.getSelectedIndex() + 1;
+    }
+
+    protected static boolean getExcess() {
+        return excessProtection.isSelected();
+    }
+
+    protected static boolean getRoadside() {
+        return roadsideProtection.isSelected();
     }
 
 
@@ -202,7 +220,11 @@ public class RentalForm extends JPanel {
         addressLine2.setText("");
         city.setText("");
         postCode.setText("");
+        duration.setText("");
         carList.setSelectedIndex(0);
+        excessProtection.setSelected(false);
+        roadsideProtection.setSelected(false);
+
     }
 
 }

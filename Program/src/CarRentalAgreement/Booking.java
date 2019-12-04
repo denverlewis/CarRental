@@ -1,82 +1,49 @@
 package CarRentalAgreement;
 
 import java.text.DecimalFormat;
+import CustomerDetails.Customer;
 
 /**
  * Created by Joshua Bogle on 02/12/2019
  * Class to construct bookings and print a formatted receipt
  */
 public class Booking {
-   DecimalFormat df = new DecimalFormat("00.00");
+   DecimalFormat df = new DecimalFormat("0.00");
 
-   private String city, address, postcode;
-   private int day, month, year;
-   private double excessRate, roadsideRate;
+   private int ID;
+   private String name;
+   private String address;
+   private String rentalType;
+   private String car;
+   private double rate, extraTotal, finalTotal, total;
    private boolean excessProtection;
    private boolean roadsideProtection;
-   private double roadsideTotal, excessTotal, finalTotal;
-
+   private boolean existing;
    private int noOfDays;
 
-   public Booking(String city, String address, String postcode, int day, int month, int year, int noOfDays,
-                 boolean excessProtection, boolean roadsideProtection) {
-      this.city = city;
+
+   public Booking() {
+
+   }
+
+   public Booking(int ID, String name, String address, int noOfDays, double rate, String rentalType,
+                  String car, double total, double extraTotal,
+                  double finalTotal, boolean excessProtection, boolean roadsideProtection) {
+
+      this.ID = ID;
+      this.name = name;
       this.address = address;
-      this.postcode = postcode;
-      this.day = day;
-      this.month = month;
-      this.year = year;
+      this.rentalType = rentalType;
+      this.rate = rate;
+      this.car = car;
       this.excessProtection = excessProtection;
       this.roadsideProtection = roadsideProtection;
       this.noOfDays = noOfDays;
-      excessRate = 13.50;
-      roadsideRate = 6.00;
-      roadsideTotal = roadsideRate * noOfDays;
-      excessTotal = excessRate * noOfDays;
-      finalTotal = roadsideTotal + excessTotal;
+      this.total = total;
+      this.extraTotal = extraTotal;
+      this.finalTotal = finalTotal;
+
    }
-
-
-   public String getCity() {
-      return city;
-   }
-
-   public int getDay() {
-      return day;
-   }
-
-   public int getMonth() {
-      return month;
-   }
-
-   public int getYear() {
-      return year;
-   }
-
-   public int getNoOfDays() {
-      return noOfDays;
-   }
-
-   public void setLocation(String location) {
-      this.city = location;
-   }
-
-   public void setDay(int day) {
-      this.day = day;
-   }
-
-   public void setMonth(int month) {
-      this.month = month;
-   }
-
-   public void setYear(int year) {
-      this.year = year;
-   }
-
-   public void setNoOfDays(int noOfDays) {
-      this.noOfDays = noOfDays;
-   }
-
 
 
    public String isExcessProtection() {
@@ -99,28 +66,100 @@ public class Booking {
       return message;
    }
 
+   // Output Booking record
    public String toString() {
 
-      String message = "Current Booking\n" +
-            "=================\n" +
-            "City: " + city + "\n" +
-            "Address: " + address + "\n" +
-            "Postcode: " + postcode + "\n" +
-            "Date booked: " + day + "/" + month + "/" + year + "\n" +
-            "Number of days: " + noOfDays + "\n" +
-            "Excess Protection: " + isExcessProtection() + "\n" +
-            "Roadside Protection: " + isRoadsideProtection();
+      return "Booking Confirmed\n" +
+              "=====================================\n" +
+              "Book Reference: " + ID + "\n\n" +
+              "Name:\t" + name + "\n" +
+              "Address:\t"+ address + "\n" +
+              "=====================================\n" +
+              "Number of days:\t" + noOfDays + "\n" +
+              "Rental Type:\t\t" + rentalType + "\n" +
+              "Car Selected:\t\t" + car + "\n" +
+              "Excess Protection:\t" + isExcessProtection() + "\n" +
+              "Roadside Protection:\t" + isRoadsideProtection() + "\n" +
+              "=====================================\n" +
+              "Rental Total:\t\t£" + df.format(total) + "\nExtras Total:\t\t£"
+              + df.format(extraTotal) + "\nGrand Total:\t\t£" + df.format(finalTotal);
 
-      if (!(roadsideProtection) && !(excessProtection)) {
-         message = message + "\nTotal so far: N/A";
-      } else if (!(roadsideProtection) && excessProtection) {
-         message = message + "\nTotal so far: £" + (df.format(excessRate * noOfDays));
-      } else if (!(excessProtection) && roadsideProtection) {
-         message = message + "\nTotal so far: £" + (df.format(roadsideRate * noOfDays));
-      }
-      else {
-         message = message + "\nTotal so far: £" + df.format(finalTotal);
-      }
-      return message;
    }
+/* /////////////// THIS SECTION HAS MOVED TO CUSTOMER
+   public void calculateTotals() {
+
+      total = rate * noOfDays;
+
+      if (!excessProtection && !roadsideProtection ) {
+         extraTotal = 0;
+         finalTotal = total;
+      } else if (!roadsideProtection) {
+         extraTotal = (rate * excessRate) * noOfDays;
+         finalTotal = total + extraTotal;
+      } else if (!excessProtection) {
+         extraTotal = (rate * roadsideRate) * noOfDays;
+         finalTotal = total + extraTotal;
+      } else {
+         extraTotal = ((rate * excessRate) + (rate * roadsideRate)) * noOfDays;
+         finalTotal = total + extraTotal;
+      }
+
+
+
+
+
+
+
+   public void getTotals(int index) {
+      total = Customer.baseTotal.get(index -1);
+      extraTotal = Customer.extraTotal.get(index -1);
+      finalTotal = Customer.customerTotal.get(index -1);
+
+   }
+
+*/
+
+
 }//class
+
+
+//   public String getCity() {
+//      return city;
+//   }
+//
+//   public int getDay() {
+//      return day;
+//   }
+//
+//   public int getMonth() {
+//      return month;
+//   }
+//
+//   public int getYear() {
+//      return year;
+//   }
+//
+//   public int getNoOfDays() {
+//      return noOfDays;
+//   }
+//
+//   public void setLocation(String location) {
+//      this.city = location;
+//   }
+//
+//   public void setDay(int day) {
+//      this.day = day;
+//   }
+//
+//   public void setMonth(int month) {
+//      this.month = month;
+//   }
+//
+//   public void setYear(int year) {
+//      this.year = year;
+//   }
+//
+//   public void setNoOfDays(int noOfDays) {
+//      this.noOfDays = noOfDays;
+//   }
+

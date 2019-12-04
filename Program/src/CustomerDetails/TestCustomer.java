@@ -1,16 +1,21 @@
+/*
 package CustomerDetails;
 
+*/
 /**
  * Created by damonrodgers on 02/12/2019
  * COMMENTS ABOUT PROGRAM HERE
- */
+ *//*
+
 
 import java.util.Scanner;
 
+*/
 /*
  * Program to test the Employee, Full Time Employee
  * and also the Part Time Employee classes together.
- */
+ *//*
+
 
 public class TestCustomer {
 
@@ -41,4 +46,4 @@ public class TestCustomer {
       Customer customer1 = new Customer(number, name,address1, address2, postcode, licenceNo);
       System.out.println("Customer " + customer1.getNumber() + " is called " + customer1.getName() + " and wishes to rent :" + "\n");
    }//main
-}//class 
+}//class */

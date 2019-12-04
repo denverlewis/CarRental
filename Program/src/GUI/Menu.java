@@ -52,6 +52,7 @@ public class Menu extends JPanel implements ActionListener {
                     JOptionPane.showMessageDialog(null,
                             "Must be 18 or over to rent a car");
             else Controller.setValues();
+
         }
         if (e.getActionCommand().equals("Show Report")) {
             //System.out.println("Show Report Clicked");
@@ -68,6 +69,7 @@ public class Menu extends JPanel implements ActionListener {
                 RentalForm.getSName().equals("") ||
                 RentalForm.getAddressLine1().equals("")
                 || RentalForm.getPostCode().equals("") ||
-                RentalForm.getCity().equals("") || RentalForm.getAge() == 0;
+                RentalForm.getCity().equals("") || RentalForm.getAge() == 0 ||
+                RentalForm.getDays() == 0;
     }
 }
