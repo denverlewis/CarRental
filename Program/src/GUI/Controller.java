@@ -79,15 +79,33 @@ public class Controller extends JFrame {
         MessageBuilder message = new MessageBuilder();
         OutputScreen.clearOutput();
         message.outputMessage();
-        //testFindEntry();
 
     }
 
-    public static void testFindEntry() {
-        Scanner kb = new Scanner(System.in);
-        System.out.print("Enter record number: ");
-        int index = kb.nextInt();
-        //System.out.println(CustomerDataBase.fNameList.get(index));
+    public static void getBooking() {
+        int index;
+        String name, address, city, postcode, type, car;
+        String input = JOptionPane.showInputDialog("Enter Booking Reference");
+        try {
+            index = Integer.parseInt(input) -1;
+            name = CustomerDataBase.nameList.get(index);
+            address = CustomerDataBase.addressList.get(index);
+            city = CustomerDataBase.cityList.get(index);
+            postcode = CustomerDataBase.postcodeList.get(index);
+            type = CustomerDataBase.carTypeList.get(index);
+            car = CustomerDataBase.carMakeList.get(index);
+            Booking newBooking = new Booking(city, address, postcode,
+                    1, 1, 1, 1,false,false);
+            new OutputScreen(newBooking.toString(), true);
+
+        }catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Invalid Record");
+
+        }catch (IndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(null, "Record not found");
+
+        }
+
     }
 
 

@@ -1,5 +1,6 @@
 package GUI;
 
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -20,6 +21,8 @@ public class RentalForm extends JPanel {
     private static JTextField age;
     private static JTextField duration;
     private static JList<String> carList;
+    private static JCheckBox excessProtection;
+    private static JCheckBox roadsideProtection;
 
     public RentalForm() {
 
@@ -48,6 +51,10 @@ public class RentalForm extends JPanel {
         duration = new JTextField(3);
         JLabel selectCar = new JLabel("Car Category: ");
         carList = new JList<>();
+        JLabel excessLabel = new JLabel("Add Excess Protection: ");
+        excessProtection = new JCheckBox();
+        JLabel roadsideLabel = new JLabel("Add Roadside Protection: ");
+        roadsideProtection = new JCheckBox();
 
         // Sets up carList
         DefaultListModel<String> listModel = new DefaultListModel<>();
@@ -111,7 +118,7 @@ public class RentalForm extends JPanel {
         c.gridx = 3;
         c.anchor = GridBagConstraints.LINE_START;
         add(postCode, c);
-        c.weighty = 2;
+        c.weighty = 0;
         c.gridx = 0;
         c.gridy = 5;
 
@@ -128,10 +135,20 @@ public class RentalForm extends JPanel {
         c.anchor = GridBagConstraints.FIRST_LINE_START;
         c.gridx = 3;
         add(duration, c);
-
-        // Rental Duration
-
-
+        c.gridx = 0;
+        c.gridy = 7;
+        c.gridwidth = 2;
+        c.anchor = GridBagConstraints.FIRST_LINE_END;
+        add(excessLabel, c);
+        c.gridy = 8;
+        add(roadsideLabel, c);
+        c.anchor = GridBagConstraints.FIRST_LINE_START;
+        c.gridy = 7;
+        c.gridx = 2;
+        add(excessProtection, c);
+        c.gridy = 8;
+        c.weighty = 4;
+        add(roadsideProtection, c);
 
     }
 
@@ -159,11 +176,16 @@ public class RentalForm extends JPanel {
     public static String getPostCode() {
         return postCode.getText();
     }
+
     public static int getAge() {
-        if (age.getText().equals(""))
-            return 0;
-        else
-            return Integer.parseInt(age.getText());
+        try {
+            if (age.getText().equals(""))
+                return 0;
+            else
+                return Integer.parseInt(age.getText());
+        } catch (NumberFormatException e) {
+            return -1;
+        }
     }
 
     protected static int getCarCat() {

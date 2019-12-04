@@ -13,10 +13,13 @@ public class CarSelector {
 
     public CarSelector(int choice) {
 
+        String[] mini = {"Ford Fiesta", "Vauxhall Corsa", "Fiat 500", "Volkswagon Polo"};
+
+
         switch(choice) {
             case 1:
                 type = "Mini";
-                makeModel = "Ford Fiesta";
+                makeModel = mini[getrandom(mini.length)];
                 dailyRate = 25.50;
                 break;
             case 2:
@@ -48,6 +51,13 @@ public class CarSelector {
 
     public double getDailyRate() {
         return dailyRate;
+    }
+
+    private int getrandom(int length) {
+        double num = Math.random() * length;
+        System.out.println((int) num);
+        return (int) num;
+
     }
 
 }
