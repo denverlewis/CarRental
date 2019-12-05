@@ -9,7 +9,7 @@ import java.awt.*;
  * Created on 28/11/2019
  * Builds a rental form in the controller and assigns data to variables
  */
-public class RentalForm extends JPanel {
+class RentalForm extends JPanel {
 
     // Declares instance variables
     private static JTextField fName;
@@ -24,7 +24,7 @@ public class RentalForm extends JPanel {
     private static JCheckBox excessProtection;
     private static JCheckBox roadsideProtection;
 
-    public RentalForm() {
+    RentalForm() {
 
         // Sets form size and border
         Dimension dim = new Dimension();
@@ -153,31 +153,31 @@ public class RentalForm extends JPanel {
     }
 
     // Gets data from text fields
-    public static String getFName() {
+    static String getFName() {
         return fName.getText();
     }
 
-    public static String getSName() {
+    static String getSName() {
         return sName.getText();
     }
 
-    public static String getAddressLine1() {
+    static String getAddressLine1() {
         return addressLine1.getText();
     }
 
-    public static String getAddressLine2() {
+    static String getAddressLine2() {
         return addressLine2.getText();
     }
 
-    public static String getCity() {
+    static String getCity() {
         return city.getText();
     }
 
-    public static String getPostCode() {
+    static String getPostCode() {
         return postCode.getText();
     }
 
-    public static int getAge() {
+    static int getAge() {
         try {
             if (age.getText().equals(""))
                 return 0;
@@ -187,7 +187,8 @@ public class RentalForm extends JPanel {
             return -1;
         }
     }
-    protected static int getDays() {
+
+    static int getDays() {
         try {
             if (duration.getText().equals(""))
                 return 0;
@@ -195,24 +196,26 @@ public class RentalForm extends JPanel {
                 return Integer.parseInt(duration.getText());
         } catch (NumberFormatException e) {
             return 0;
+
         }
+
     }
 
-    protected static int getCarCat() {
+    static int getCarCat() {
         return carList.getSelectedIndex() + 1;
     }
 
-    protected static boolean getExcess() {
+
+    static boolean getExcess() {
         return excessProtection.isSelected();
     }
 
-    protected static boolean getRoadside() {
+    static boolean getRoadside() {
         return roadsideProtection.isSelected();
     }
 
-
     // Clears all form fields to empty
-    public static void clearForm() {
+    static void clearForm() {
         fName.setText("");
         sName.setText("");
         age.setText("");

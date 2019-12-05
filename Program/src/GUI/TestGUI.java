@@ -1,13 +1,16 @@
+/*
 package GUI;
 
 import java.util.ArrayList;
 
 
+*/
 /**
  * Created by Denver Lewis - B00530157
  * Created on 01/12/2019
  * Testing GUI functionality
- */
+ *//*
+
 public class TestGUI {
 
     private String fName;
@@ -47,7 +50,8 @@ public class TestGUI {
             }
             //OutputScreen.outputMessage("\nThe number of rentals was "
                     //+ fNameList.size());
-            /*
+            */
+/*
             OutputScreen.outputMessage("\n\n\nTEST LONG MESSAGE\n Lorem ipsum
             dolor sit amet,\n " +
                     "consectetur adipiscing\n elit, sed do eiusmod tempor
@@ -67,9 +71,11 @@ public class TestGUI {
                     "nulla pariatur. Excepteur sint\n occaecat cupidatat non
                     proident, sunt in\n " +
                     "culpa qui officia\n deserunt mollit anim id est laborum.");
-                    */
+                    *//*
+
 
         }
 
     }
 }
+*/

@@ -14,8 +14,9 @@ public class OutputScreen extends JPanel {
 
     private static JTextArea textArea;
 
+    // New Output
+    OutputScreen() {
 
-    public OutputScreen() {
         textArea = new JTextArea();
 
         setLayout(new BorderLayout());
@@ -26,16 +27,19 @@ public class OutputScreen extends JPanel {
 
     }
 
+    // Accepts a string to be output and a boolean to clear screen
     public OutputScreen(String output, boolean clear) {
         if (clear) OutputScreen.clearOutput();
         outputMessage(output);
     }
 
-    public void outputMessage(String output) {
+    // Appends text to textArea
+    private void outputMessage(String output) {
         textArea.append(output);
     }
 
-    public static void clearOutput() {
+    // Clears the textArea
+    static void clearOutput() {
         textArea.setText("");
     }
 }
