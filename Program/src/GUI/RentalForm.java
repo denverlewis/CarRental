@@ -153,31 +153,50 @@ class RentalForm extends JPanel {
     }
 
     // Gets data from text fields
-    static String getFName() {
+    protected static String getFName() {
         return fName.getText();
     }
 
-    static String getSName() {
+    protected static String getSName() {
         return sName.getText();
     }
 
-    static String getAddressLine1() {
+     protected static String getAddressLine1() {
         return addressLine1.getText();
     }
 
-    static String getAddressLine2() {
+    protected static String getAddressLine2() {
         return addressLine2.getText();
     }
 
-    static String getCity() {
+
+    protected static String getCity() {
         return city.getText();
     }
 
-    static String getPostCode() {
+    protected static String getPostCode() {
         return postCode.getText();
     }
 
-    static int getAge() {
+    protected static String getFormattedName() {
+
+        return getFName() + " " + getSName();
+    }
+
+    protected static String getFormattedAddress() {
+        String address;
+        if(getAddressLine2().equals(""))
+            address = getAddressLine1() + "\n\t" + getCity() + "\n\t"
+                    + getPostCode();
+        else address =
+                getAddressLine1() + "\n\t" + getAddressLine2() + "\n\t" +
+                        getCity() + "\n\t" + getPostCode();
+        return address;
+    }
+
+
+
+    protected static int getAge() {
         try {
             if (age.getText().equals(""))
                 return 0;
@@ -188,7 +207,7 @@ class RentalForm extends JPanel {
         }
     }
 
-    static int getDays() {
+    protected static int getDays() {
         try {
             if (duration.getText().equals(""))
                 return 0;
@@ -201,21 +220,21 @@ class RentalForm extends JPanel {
 
     }
 
-    static int getCarCat() {
+    protected static int getCarCat() {
         return carList.getSelectedIndex() + 1;
     }
 
 
-    static boolean getExcess() {
+    protected static boolean getExcess() {
         return excessProtection.isSelected();
     }
 
-    static boolean getRoadside() {
+    protected static boolean getRoadside() {
         return roadsideProtection.isSelected();
     }
 
     // Clears all form fields to empty
-    static void clearForm() {
+     public static void clearForm() {
         fName.setText("");
         sName.setText("");
         age.setText("");

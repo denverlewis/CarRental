@@ -39,11 +39,11 @@ public class OutputScreen extends JPanel {
     }
 
     // Clears the textArea
-    static void clearOutput() {
+    protected static void clearOutput() {
         textArea.setText("");
     }
 
-    static String getOutput() {
+    protected static String getOutput() {
         return textArea.getText();
     }
 }

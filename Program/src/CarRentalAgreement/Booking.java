@@ -18,8 +18,8 @@ public class Booking {
    private double rate, extraTotal, finalTotal, total;
    private boolean excessProtection;
    private boolean roadsideProtection;
-   private boolean existing;
    private int noOfDays;
+
 
 
    public Booking() {
@@ -46,7 +46,7 @@ public class Booking {
    }
 
 
-   public String isExcessProtection() {
+   private String isExcessProtection() {
       String message;
       if (excessProtection) {
          message = "Yes";
@@ -56,7 +56,7 @@ public class Booking {
       return message;
    }
 
-   public String isRoadsideProtection() {
+   private String isRoadsideProtection() {
       String message;
       if (roadsideProtection) {
          message = "Yes";
@@ -83,6 +83,24 @@ public class Booking {
               "=====================================\n" +
               "Rental Total:\t\t£" + df.format(total) + "\nExtras Total:\t\t£"
               + df.format(extraTotal) + "\nGrand Total:\t\t£" + df.format(finalTotal);
+
+   }
+
+   public void getBooking(int index) {
+
+      name = Customer.nameList.get(index);
+      address = Customer.addressList.get(index);
+      rentalType = Customer.rentalTypeList.get(index);
+      noOfDays = Customer.dayList.get(index);
+      car = Customer.carMakeList.get(index);
+      ID = Customer.referenceList.get(index);
+      total = Customer.baseTotalList.get(index);
+      extraTotal = Customer.extraTotalList.get(index);
+      finalTotal = Customer.customerTotalList.get(index);
+      excessProtection = Customer.excessList.get(index);
+      roadsideProtection = Customer.roadsideList.get(index);
+
+
 
    }
 /* /////////////// THIS SECTION HAS MOVED TO CUSTOMER

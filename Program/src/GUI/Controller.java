@@ -19,7 +19,7 @@ import CustomerDetails.Customer;
 public class Controller extends JFrame {
 
     // Defines variables to be passed from Form to Booking and Customer records
-    public static String name, address, rentalType, carMake;
+    private static String name, address, rentalType, carMake;
     private static int days, nextID = 1;
     private static double dailyRate;
     private static boolean excess, roadside;
@@ -66,13 +66,8 @@ public class Controller extends JFrame {
         final double YOUNG_DRIVER_FEE = 1.25;
 
         // Sets a formatted name and address
-        name = RentalForm.getFName() + " " + RentalForm.getSName();
-        if(RentalForm.getAddressLine2().equals(""))
-            address = RentalForm.getAddressLine1() + "\n\t" + RentalForm.getCity() + "\n\t"
-                    + RentalForm.getPostCode();
-        else address =
-                RentalForm.getAddressLine1() + "\n\t" + RentalForm.getAddressLine2() + "\n\t"
-                        + RentalForm.getCity() + "\n\t" + RentalForm.getPostCode();
+        name = RentalForm.getFormattedName();
+        address = RentalForm.getFormattedAddress();
 
         // Creates a new car object and returns the rental type, car model and daily rate
         CarSelection car = new CarSelection(RentalForm.getCarCat());
@@ -167,27 +162,16 @@ public class Controller extends JFrame {
         // If the index is valid values are assigned
         try {
             index = Integer.parseInt(input) -1;
-            name = Customer.nameList.get(index);
-            address = Customer.addressList.get(index);
-            rentalType = Customer.rentalTypeList.get(index);
-            carMake = Customer.carMakeList.get(index);
-            int getID = Customer.referenceList.get(index);
-            double base = Customer.baseTotalList.get(index);
-            double extras = Customer.extraTotalList.get(index);
-            double total = Customer.customerTotalList.get(index);
-            excess = Customer.excessList.get(index);
-            roadside = Customer.roadsideList.get(index);
+            Booking getBooking = new Booking();
+            getBooking.getBooking(index);
 
-            // New booking object to display recalled entry
-            Booking getBooking = new Booking(getID, name, address, days, dailyRate, rentalType,
-                    carMake, base, extras, total, excess, roadside);
             new OutputScreen(getBooking.toString(), true);
 
             // Handles exceptions if index is not an int or if int is out of list bounds
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException error) {
             JOptionPane.showMessageDialog(null, "Invalid Record");
 
-        } catch (IndexOutOfBoundsException e) {
+        } catch (IndexOutOfBoundsException error) {
             JOptionPane.showMessageDialog(null, "Record not found");
 
         }
@@ -208,7 +192,7 @@ public class Controller extends JFrame {
             JOptionPane.showMessageDialog(null, "Current Screen Saved to File!");
             // file will save in the project folder
 
-        } catch (Exception e) {
+        } catch (Exception error) {
             new JOptionPane("The file could not be created!");
         }
 
