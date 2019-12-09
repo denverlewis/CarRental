@@ -1,9 +1,10 @@
 package GUI;
 
+
 import javax.swing.*;
 import java.awt.*;
+import java.io.PrintWriter;
 import java.text.DecimalFormat;
-
 
 import CarSelection.CarSelection;
 import CarRentalAgreement.Booking;
@@ -15,17 +16,19 @@ import CustomerDetails.Customer;
  * Builds a GUI and communicates data
  */
 
-class Controller extends JFrame {
+public class Controller extends JFrame {
 
-    // Defines static variables to act as a buffer allowing these values to be passed to customer
-    // and output using different methods
-    private static String name, address, rentalType, carMake;
+    // Defines variables to be passed from Form to Booking and Customer records
+    public static String name, address, rentalType, carMake;
     private static int days, nextID = 1;
     private static double dailyRate;
     private static boolean excess, roadside;
 
+    // Formats output file name
+    private static int outputNum = 1;
+
     // Creates the User interface
-    Controller() {
+    protected Controller() {
 
         // Sets default parameters
         super("Magee Car Rental");
@@ -34,14 +37,14 @@ class Controller extends JFrame {
         setSize(WIDTH, HEIGHT);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Creates Component objects
+        // Creates component objects
         OutputScreen outputScreen = new OutputScreen();
         JLabel header = new JLabel(new ImageIcon(getClass().getResource
                 ("logo.png")));
         Menu menu = new Menu();
         RentalForm rentalForm = new RentalForm();
 
-        // Sets Layout
+        // Sets layout
         setLayout(new BorderLayout());
         add(header, BorderLayout.NORTH);
         add(outputScreen, BorderLayout.CENTER);
@@ -53,11 +56,14 @@ class Controller extends JFrame {
     }
 
     // Collects values from the form and car selection class and stores these values in customer
-    static void setValues() {
+    protected static void setValues() {
 
         // sets an ID and updates next ID
         int ID = nextID;
         nextID++;
+
+        // Sets a constant for a young drivers fee
+        final double YOUNG_DRIVER_FEE = 1.25;
 
         // Sets a formatted name and address
         name = RentalForm.getFName() + " " + RentalForm.getSName();
@@ -72,10 +78,10 @@ class Controller extends JFrame {
         CarSelection car = new CarSelection(RentalForm.getCarCat());
         rentalType = car.getType();
         carMake = car.getMakeModel();
-        dailyRate = car.getDailyRate();
+        dailyRate = car.getDailyRate();  // Adds the car details to the entry
 
         // Works out if under 25 and increases the rate
-        if(RentalForm.getAge() < 25) dailyRate = dailyRate * 1.25;
+        if(RentalForm.getAge() < 25) dailyRate = dailyRate * YOUNG_DRIVER_FEE;
 
         // Continues to collect data from the rental form
         excess = RentalForm.getExcess();
@@ -89,7 +95,7 @@ class Controller extends JFrame {
         // Returns price values calculated by the customer class based on the data provided;
         double base = newCustomer.getBaseTotal();
         double extras = newCustomer.getExtraTotal();
-        double total = newCustomer.getGrandTotal();
+        double total = newCustomer.getGrandTotal();  // This completes a single booking entry
 
         // Updates the ArrayLists with the new booking details
         newCustomer.addData();
@@ -107,7 +113,7 @@ class Controller extends JFrame {
     }//setValues
 
     // Generates a report of all new rentals and produces a grand total
-    static void printData() {
+    protected static void printData() {
 
         // Keeps track of running total
         double grandTotal = 0, total;
@@ -151,7 +157,7 @@ class Controller extends JFrame {
     }//printData
 
     // Allow the user to recall any booking record
-    static void getBooking() {
+    protected static void getBooking() {
 
         int index;
 
@@ -177,16 +183,35 @@ class Controller extends JFrame {
                     carMake, base, extras, total, excess, roadside);
             new OutputScreen(getBooking.toString(), true);
 
-
             // Handles exceptions if index is not an int or if int is out of list bounds
-        }catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Invalid Record");
 
-        }catch (IndexOutOfBoundsException e) {
+        } catch (IndexOutOfBoundsException e) {
             JOptionPane.showMessageDialog(null, "Record not found");
 
         }
 
     }//getBooking
+
+    // Saves the current Screen output to file
+    static void saveOutput() {
+
+        // Gives each file a unique file name
+        String output = "output" + outputNum + ".txt";
+        try {
+
+            PrintWriter outputStream = new PrintWriter(output);
+            outputStream.print(OutputScreen.getOutput());
+            outputStream.close();
+            outputNum ++;
+            JOptionPane.showMessageDialog(null, "Current Screen Saved to File!");
+            // file will save in the project folder
+
+        } catch (Exception e) {
+            new JOptionPane("The file could not be created!");
+        }
+
+    }//saveOutput
 
 }//controller

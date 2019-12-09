@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Customer {
 
    // Declaring Variables
-   private String name;
+   public String name;
    private String address;
    private String rentalType;
    private String carMake;
@@ -66,8 +66,6 @@ public class Customer {
 
    public void addData() {
 
-      System.out.println("Booking ID " + bookingID);
-      System.out.println("List Size " + referenceList.size());
 
       referenceList.add(bookingID);
       nameList.add(name);
@@ -84,6 +82,7 @@ public class Customer {
 
    }
 
+// Booking
    private void setTotals() {
 
       baseTotal = rate * days;
@@ -101,7 +100,7 @@ public class Customer {
          extraTotal = ((rate * excessRate) + (rate * roadsideRate)) * days;
          grandTotal = baseTotal + extraTotal;
       }
-      System.out.println("Set Totals done");
+
 
    }
 

@@ -61,6 +61,9 @@ public class Menu extends JPanel implements ActionListener {
         if (e.getActionCommand().equals("Get Booking")) {
             Controller.getBooking();
         }
+        if (e.getActionCommand().equals("Save to File")) {
+            Controller.saveOutput();
+        }
 
     }
 

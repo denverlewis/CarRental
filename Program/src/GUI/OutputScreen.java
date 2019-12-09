@@ -42,4 +42,8 @@ public class OutputScreen extends JPanel {
     static void clearOutput() {
         textArea.setText("");
     }
+
+    static String getOutput() {
+        return textArea.getText();
+    }
 }
