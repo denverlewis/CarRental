@@ -14,10 +14,10 @@ public class CarSelection {
 
         public CarSelection(int num) {
 
-            String[] mini = {"Ford Fiesta", "Vauxhall Corsa", "Fiat 500", "Volkswagon Polo"};
-            String[] economy = {"Ford Mondeo", "Volkswagon Golf", "Kia Cee'd"};
-            String[] compact = {"Vauxhall Astra", "BMW 3 Series", "Skoda Octavia"};
-            String[] premium = {"BMW 3 Series", "Mercedes E Class", "Audi A6"};
+            String[] mini = {"Ford Fiesta", "Vauxhall Corsa", "Fiat 500", "Volkswagon Polo", "Seat Ibiza"};
+            String[] compact = {"vauxhall Astra", "Volkswagon Golf", "Kia Cee'd","Seat Leon", "Audi A3"};
+            String[] economy = {"Ford Mondeo", "BMW 3 Series", "Skoda Octavia", "Volkswagon Passat", "Audi A4"};
+            String[] premium = {"BMW 5 Series", "Mercedes E Class", "Audi A6", "Jaguar XF", "Range Rover Evoque"};
 
 
             switch(num) {
