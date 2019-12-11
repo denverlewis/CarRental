@@ -24,6 +24,7 @@ public class Controller extends JFrame {
     private static double dailyRate;
     private static boolean excess, roadside;
 
+
     // Formats output file name
     private static int outputNum = 1;
 
@@ -40,7 +41,7 @@ public class Controller extends JFrame {
         // Creates component objects
         OutputScreen outputScreen = new OutputScreen();
         JLabel header = new JLabel(new ImageIcon(getClass().getResource
-                ("logo.png")));
+                ("banner.jpg")));
         Menu menu = new Menu();
         RentalForm rentalForm = new RentalForm();
 
@@ -104,6 +105,7 @@ public class Controller extends JFrame {
 
         // Creates a new output on the screen
         new OutputScreen(newBooking.toString(), true);
+
 
     }//setValues
 

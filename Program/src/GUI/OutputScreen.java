@@ -22,7 +22,7 @@ public class OutputScreen extends JPanel {
         setLayout(new BorderLayout());
         add(new JScrollPane(textArea), BorderLayout.CENTER);
         setBorder(BorderFactory.createLoweredBevelBorder());
-        textArea.setMargin(new Insets(0, 5, 0, 0));
+        textArea.setMargin(new Insets(10, 60, 0, 0));
         textArea.setEditable(false);
 
     }
@@ -31,6 +31,7 @@ public class OutputScreen extends JPanel {
     public OutputScreen(String output, boolean clear) {
         if (clear) OutputScreen.clearOutput();
         outputMessage(output);
+        new JLabel(new ImageIcon(getClass().getResource("logo2.png")));
     }
 
     // Appends text to textArea

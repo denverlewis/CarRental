@@ -67,6 +67,7 @@ public class Booking {
    }
 
    // Output Booking record
+
    public String toString() {
 
       return "Booking Confirmed\n" +
